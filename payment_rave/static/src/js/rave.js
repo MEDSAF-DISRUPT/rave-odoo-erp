@@ -24,7 +24,9 @@ odoo.define('payment_rave.rave', function(require) {
             customer_phone: phone,
             currency: currency,
             txref: invoice_num,
-            onclose: function() {},
+            onclose: function() {
+                window.location = "/shop/payment";
+            },
             callback: function(response) {
                 var txref = response.tx.txRef; // collect txRef returned and pass to a 					server page to complete status check.
                 if ($.blockUI) {
